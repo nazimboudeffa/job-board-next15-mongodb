@@ -15,4 +15,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: '/auth/sign-in',
     verifyRequest: '/auth/verify-request',
   },
+  callbacks: {
+    // Ensure the id is included in the session
+    async session({ session, user }) {
+      if (user) {
+        console.log('Session User Id:', user.id);
+        console.log('Session User Session:', session.user);
+        session.user = user;
+      }
+      return session;
+    }
+  },
 })

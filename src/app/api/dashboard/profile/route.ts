@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { connectDB } from "@/lib/config-db";
 import Profile from '@/lib/models/Profile';
 import { auth } from '@/lib/auth';
+import { ObjectId } from 'mongodb';
 
 export async function GET() {
     try {
@@ -22,9 +23,13 @@ export async function GET() {
 
         await connectDB();
 
+        
+        // Convert userId to ObjectId
+        const userId = new ObjectId(session.user.id);
+
         // Filtrer explicitement par userId
         const profile = await Profile.findOne({ 
-            userId: session.user.id  // Utilisez directement l'ID de la session
+            userId: userId  // Utilisez directement l'ID de la session
         });
 
         console.log('Profile:', profile);
@@ -40,7 +45,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     try {
 
-        const session = await getServerSession(authOptions);
+        const session = await auth();
 
         if (!session?.user) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -55,10 +60,13 @@ export async function POST(request: NextRequest) {
 
         await connectDB();
 
-                // Find the profile by userId and update it, or create a new one if it doesn't exist
+        // Convert userId to ObjectId
+        const userId = new ObjectId(session.user.id);
+
+        // Find the profile by userId and update it, or create a new one if it doesn't exist
         const profile = await Profile.findOneAndUpdate(
-            { userId: session.user.id },
-            { ...body, userId: session.user.id },
+            { userId: userId },
+            { ...body, userId: userId },
             { new: true, upsert: true, setDefaultsOnInsert: true }
         );
 
