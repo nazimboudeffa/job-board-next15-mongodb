@@ -3,20 +3,9 @@ import { JobFilterValues } from "@/lib/validations";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import JobListItem from "./JobListItem";
+import Job from "@/lib/types/job";
 
 const jobsPerPage = 5;
-
-interface Job {
-  _id: string;
-  title: string;
-  companyName: string;
-  type: string;
-  locationType: string;
-  location: string;
-  salary: number;
-  createdAt: Date;
-  slug: string;
-}
 
 interface JobResultsProps {
   jobs: Job[];
