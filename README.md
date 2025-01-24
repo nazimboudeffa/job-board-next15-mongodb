@@ -33,8 +33,11 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
    Créez un fichier .env.local à la racine avec les clés suivantes :
 
    ```env
-   MONGODB_URI=your_mongodb_uri
-   NEXT_URL=http://localhost:3000
+   MONGO_URI=mongodb://localhost:27017/neofreelance
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=nextauth_something
+   EMAIL_SERVER=smtp://<username>:<password>@<smtp-host>:<port>
+   EMAIL_FROM=youremail@example.com
 
 5. Lancez le serveur de développement :
 
