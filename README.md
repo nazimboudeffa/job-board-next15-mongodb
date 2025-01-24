@@ -32,14 +32,15 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 
    Créez un fichier .env.local à la racine avec les clés suivantes :
 
+   ```env
    MONGODB_URI=your_mongodb_uri
    NEXT_URL=http://localhost:3000
 
-4. Lancez le serveur de développement :
+5. Lancez le serveur de développement :
 
    npm run dev
 
-5. Ouvrez http://localhost:3000 dans votre navigateur pour accéder à l'application.
+6. Ouvrez http://localhost:3000 dans votre navigateur pour accéder à l'application.
 
 ## 🤝 Contribuer
 
