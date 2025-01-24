@@ -26,9 +26,10 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 
 2. Installez les dépendances :
 
+   ```bash
    npm install
    
-3. Configurez les variables d'environnement :
+4. Configurez les variables d'environnement :
 
    Créez un fichier .env.local à la racine avec les clés suivantes :
 
