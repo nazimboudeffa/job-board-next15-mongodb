@@ -42,9 +42,10 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 
 5. Lancez le serveur de développement :
 
+   ```bash
    npm run dev
 
-6. Ouvrez http://localhost:3000 dans votre navigateur pour accéder à l'application.
+7. Ouvrez http://localhost:3000 dans votre navigateur pour accéder à l'application.
 
 ## 🤝 Contribuer
 
