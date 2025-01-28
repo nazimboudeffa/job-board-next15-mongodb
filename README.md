@@ -19,6 +19,8 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 
 ## 🛠️ Installation
 
+L'installation peut aussi se faire avec un PaaS comme [DokPloy](https://github.com/Dokploy)
+
 ### Prérequis
 
 - Node.js >= 18
