@@ -22,6 +22,7 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 ### Prérequis
 
 - Node.js >= 18
+- Next.js >= 15
 - MongoDB en local ou via un service cloud comme Atlas
 
 ### Étapes
