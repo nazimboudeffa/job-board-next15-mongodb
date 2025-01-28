@@ -9,6 +9,14 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 - Recherche et filtrage des offres d'emploi
 - Interface moderne et responsive
 
+---
+
+## 🚀 Aperçu
+
+![Aperçu](public/screenshot-1.png)
+
+---
+
 ## 🛠️ Installation
 
 ### Prérequis
