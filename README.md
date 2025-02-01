@@ -9,11 +9,22 @@ Un tableau d'affichage des offres d'emploi moderne et évolutif, développé ave
 - Recherche et filtrage des offres d'emploi
 - Interface moderne et responsive
 
+---
+
+## 🚀 Aperçu
+
+![Aperçu](public/screenshot-1.png)
+
+---
+
 ## 🛠️ Installation
+
+L'installation peut aussi se faire avec un PaaS comme [DokPloy](https://github.com/Dokploy)
 
 ### Prérequis
 
 - Node.js >= 18
+- Next.js >= 15
 - MongoDB en local ou via un service cloud comme Atlas
 
 ### Étapes
