@@ -38,12 +38,12 @@ export default function JobListItem({
         </div>
         <div className="text-muted-foreground">
           <p className="flex items-center gap-1.5">
-            <Briefcase size={16} className="shrink-0" />
-            {type}
-          </p>
-          <p className="flex items-center gap-1.5">
             <MapPin size={16} className="shrink-0" />
             {location || "Worldwide"}
+          </p>
+          <p className="flex items-center gap-1.5">
+            <Briefcase size={16} className="shrink-0" />
+            {type}
           </p>
           <p className="flex items-center gap-1.5">
             <Banknote size={16} className="shrink-0" />
