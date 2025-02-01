@@ -1,7 +1,5 @@
 "use client";
 
-import logo from "@/assets/logo.png";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
@@ -103,9 +101,9 @@ export default function Navbar() {
     return (
       <header className="shadow-sm bg-white">
         <nav className="m-auto flex max-w-5xl items-center justify-between px-3 py-5">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src={logo} height={60} alt="NeoFreelance Logo" />
-          </Link>
+          <h1 className="flex items-center text-2xl font-bold">
+            <span className="text-sky-200">neo</span><span className="text-sky-700">Freelance</span>
+          </h1>
           <div className="flex items-center space-x-4">
             <div className="flex space-x-4">
               {renderNavLinks(NavLinks)}
@@ -124,9 +122,9 @@ export default function Navbar() {
   return (
     <header className="shadow-sm bg-white">
       <nav className="m-auto flex max-w-5xl items-center justify-between px-3 py-5">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src={logo} height={60} alt="NeoFreelance Logo" />
-        </Link>
+        <h1 className="flex items-center text-2xl font-bold">
+          <span className="text-sky-200">neo</span><span className="text-sky-700">Freelance</span>
+        </h1>
         <div className="flex items-center space-x-4">
           <div className="flex space-x-4">
             {renderNavLinks(NavLinks)}
