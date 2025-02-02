@@ -3,9 +3,11 @@ import { useSession } from "next-auth/react";
 import { redirect } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import JobListItemPublished from "@/components/JobListItemPublished";
+import Link from 'next/link';
 
 interface Job {
     _id: number;
+    slug: string;
     title: string;
     skills: string[];
     description: string;
@@ -89,12 +91,12 @@ export default function MyPublishedJobs() {
             ) : (
                 <div className="space-y-4">
                     {userJobs.map((job) => (
-                        <div key={job._id}>
+                        <Link key={job._id.toString()} href={`/jobs/${job.slug}`} className="block">
                         <JobListItemPublished
                             key={job._id} 
                             job={job}
                         />
-                        </div>
+                        </Link>
                     ))}
                 </div>
             )}
