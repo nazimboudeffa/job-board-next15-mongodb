@@ -1,19 +1,10 @@
 import { formatMoney, relativeDate } from "@/lib/helpers";
 import { Banknote, Briefcase, Clock, MapPin } from "lucide-react";
 import Badge from "./Badge";
+import Job from "@/lib/types/job";
 
 interface JobListItemProps {
-  job: {
-    _id : number;
-    title : string;
-    skills : string[];
-    company : string;
-    type : string;
-    location : string;
-    salaryMin : number;
-    salaryMax : number;
-    createdAt : Date;
-  };
+  job: Job;
 }
 
 export default function JobListItem({

@@ -4,20 +4,7 @@ import { redirect } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import JobListItemPublished from "@/components/JobListItemPublished";
 import Link from 'next/link';
-
-interface Job {
-    _id: number;
-    slug: string;
-    title: string;
-    skills: string[];
-    description: string;
-    company: string;
-    type: string;
-    location: string;
-    salaryMin: number;
-    salaryMax: number;
-    createdAt: Date;
-}
+import Job from "@/lib/types/job";
 
 export default function MyPublishedJobs() {
     const { data: session, status } = useSession();
