@@ -14,7 +14,7 @@ function Hero () {
               Post jobs and find freelancers from all around the world
             </p>
             <p className="mt-2 text-pretty italic text-gray-500">
-              with a focus on auto-entrepreneurs from France and Algeria
+              with a focus on <span className="text-sky-500">auto-entrepreneurs</span> from France and Algeria
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
