@@ -87,7 +87,7 @@ export default function JobListItemPublished({
           </div>
         </div>
         <div className="hidden shrink-0 flex-col items-end justify-between sm:flex">
-          <Trash size={16} className="shrink-0 text-red-500" onClick={() => deleteJob(_id)}/>
+          <Trash size={16} className="shrink-0 text-red-500 hover:text-red-700" onClick={() => deleteJob(_id)}/>
           <span className="flex items-center gap-1.5 text-muted-foreground">
             <Clock size={16} />
             {relativeDate(createdAt)}
