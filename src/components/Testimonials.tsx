@@ -34,7 +34,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div key={testimonial.name} className="flex flex-col rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
               <div className="flex-1">
-                <p className="text-lg text-gray-700">"{testimonial.quote}"</p>
+                <p className="text-lg text-gray-700">{testimonial.quote}</p>
               </div>
               <div className="mt-6">
                 <p className="font-semibold text-gray-900">{testimonial.name}</p>
