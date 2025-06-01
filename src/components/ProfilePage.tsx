@@ -16,7 +16,7 @@ export default function JobPage({
   const [profile, setProfile] = useState<Profile | undefined>();
 
     useEffect(() => {
-        fetch("/api/username", {
+        fetch("/api/profile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username }),

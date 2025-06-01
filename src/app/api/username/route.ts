@@ -9,7 +9,10 @@ export async function POST(request: NextRequest) {
     console.log(body);
     const profile = await Profile.findOne({ ...body });
     console.log(profile);
-    return NextResponse.json({ profile }, { status: 200 });
+    if (!profile) {
+      return NextResponse.json({ username: null }, { status: 200 });
+    }
+    return NextResponse.json({ username: profile.username }, { status: 200 });
 
     } catch (error) {
       console.log(error);

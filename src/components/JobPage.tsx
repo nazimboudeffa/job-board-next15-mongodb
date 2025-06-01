@@ -4,6 +4,7 @@ import { formatMoney } from "@/lib/helpers";
 import { Banknote, Briefcase, MapPin, Handshake } from "lucide-react";
 import { useEffect, useState } from "react";
 import Job from "@/lib/types/job";
+import Link from "next/link";
 
 interface JobPageProps {
   readonly slug: string;
@@ -14,6 +15,7 @@ export default function JobPage({
 }: JobPageProps) {
 
   const [job, setJob] = useState<Job | undefined>();
+  const [username, setUsername] = useState<string | undefined>();
 
   useEffect(() => {
       fetch("/api/job", {
@@ -23,8 +25,24 @@ export default function JobPage({
       })
       .then((res) => res.json())
       .then((data) => {
-      console.log(data);
       setJob(data.job);
+      // Fetch username if userId is present
+      if (data.job?.userId) {
+        fetch(`/api/username`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId: data.job.userId }),
+        })
+          .then((res) => res.json())
+          .then((profile) => {
+            console.log("Result :", profile);
+            setUsername(profile?.username);
+            console.log("Username:", profile?.username);
+          })
+          .catch(() => setUsername(undefined));
+      } else {
+        setUsername(undefined);
+      }
       })
       .catch((err) => console.log(err));
   }, [slug]);
@@ -72,7 +90,9 @@ export default function JobPage({
       <div>{job?.description}</div>
       <div className="flex items-center gap-2">
         <span className="text-xs text-muted-foreground">
-          Posted on {new Date(job?.createdAt ?? '').toLocaleDateString()}%
+          Posted on {new Date(job?.createdAt ?? '').toLocaleDateString()} by {username ? (
+            <Link href={`/u/${username}`} className="underline hover:text-blue-600">@{username}</Link>
+          ) : 'unknown'}
         </span>
       </div>
       <div className="flex items-center gap-2">
