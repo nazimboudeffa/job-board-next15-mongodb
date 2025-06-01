@@ -36,16 +36,16 @@ export default function JobListItem({
           </p>
           {/* Skills */}
           {skills?.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-1">
+            <p className="flex flex-wrap gap-2 pt-1">
               {skills.map((skill) => (
-                <div
+                <span
                   key={skill}
                   className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition"
                 >
                   {skill}
-                </div>
+                </span>
               ))}
-            </div>
+            </p>
           )}
         </div>
         <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">

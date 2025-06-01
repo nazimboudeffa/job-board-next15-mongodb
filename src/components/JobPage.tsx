@@ -44,16 +44,16 @@ export default function JobPage({
               <MapPin size={16} className="shrink-0" />
               {job?.location ?? "Worldwide"}
             </p>
-            <div className="flex items-center gap-1">
+            <p className="flex items-center gap-1">
               {job?.skills.map((skill) => (
-                <div
+                <span
                   key={skill}
                   className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition"
                 >
                   {skill}
-                </div>
+                </span>
               ))}
-            </div>
+            </p>
             <p className="flex items-center gap-1.5">
               <Briefcase size={16} className="shrink-0" />
               {job?.type}
