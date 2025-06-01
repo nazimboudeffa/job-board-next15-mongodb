@@ -21,16 +21,16 @@ export default function JobListItem({
   },
 }: Readonly<JobListItemProps>) {
   return (
-    <article className="flex gap-3 rounded-lg border p-5 hover:bg-muted/60">
-      <div id={_id.toString()} className="flex-grow space-y-3">
+    <article id={_id.toString()} className="flex flex-col sm:flex-row gap-3 rounded-lg border p-5 hover:bg-muted/60">
+      <div className="flex-grow space-y-3">
         <div>
-          <h2 className="text-xl font-medium">{title}</h2>
+          <h2 className="text-xl font-semibold">{title}</h2>
           <p className="text-muted-foreground">{company}</p>
         </div>
         <div className="text-muted-foreground">
           <p className="flex items-center gap-1.5">
             <MapPin size={16} className="shrink-0" />
-            {location || "Worldwide"}
+            {location || "Remote"}
           </p>
           <p className="flex items-center gap-1.5">
             <Briefcase size={16} className="shrink-0" />
@@ -40,19 +40,15 @@ export default function JobListItem({
             <Banknote size={16} className="shrink-0" />
             {formatMoney(salaryMin)} - {formatMoney(salaryMax)}
           </p>
-          <p className="flex items-center gap-1">
+          <div className="flex flex-wrap items-center gap-1">
             {skills.map((skill) => (
               <Badge key={skill}>{skill}</Badge>
             ))}
-          </p>
-          <p className="flex items-center gap-1.5 sm:hidden">
-            <Clock size={16} className="shrink-0" />
-            {relativeDate(createdAt)}
-          </p>
+          </div>
         </div>
       </div>
-      <div className="hidden shrink-0 flex-col items-end justify-between sm:flex">
-        <Badge>Full Remote</Badge>
+      <div className="flex shrink-0 flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 mt-3 sm:mt-0 w-full sm:w-auto">
+        <Badge variant="outline">Remote</Badge>
         <span className="flex items-center gap-1.5 text-muted-foreground">
           <Clock size={16} />
           {relativeDate(createdAt)}
