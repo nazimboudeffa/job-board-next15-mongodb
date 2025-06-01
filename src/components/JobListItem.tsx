@@ -17,6 +17,7 @@ export default function JobListItem({
     salaryMin,
     salaryMax,
     createdAt,
+    status,
   },
 }: Readonly<JobListItemProps>) {
   return (
@@ -48,7 +49,7 @@ export default function JobListItem({
           )}
         </div>
         <span className="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">
-          Remote
+          {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
       </div>
 

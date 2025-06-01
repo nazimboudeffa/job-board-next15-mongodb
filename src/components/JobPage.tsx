@@ -1,9 +1,8 @@
 "use client";
 
 import { formatMoney } from "@/lib/helpers";
-import { Banknote, Briefcase, MapPin } from "lucide-react";
+import { Banknote, Briefcase, MapPin, Handshake } from "lucide-react";
 import { useEffect, useState } from "react";
-import Badge from "./Badge";
 import Job from "@/lib/types/job";
 
 interface JobPageProps {
@@ -45,6 +44,16 @@ export default function JobPage({
               <MapPin size={16} className="shrink-0" />
               {job?.location ?? "Worldwide"}
             </p>
+            <div className="flex items-center gap-1">
+              {job?.skills.map((skill) => (
+                <div
+                  key={skill}
+                  className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition"
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
             <p className="flex items-center gap-1.5">
               <Briefcase size={16} className="shrink-0" />
               {job?.type}
@@ -53,15 +62,27 @@ export default function JobPage({
               <Banknote size={16} className="shrink-0" />
               {formatMoney(job?.salaryMin ?? 0)} - {formatMoney(job?.salaryMax ?? 0)}
             </p>
-            <p className="flex items-center gap-1">
-              {job?.skills.map((skill) => (
-                <Badge key={skill}>{skill}</Badge>
-              ))}
+            <p className="flex items-center gap-1.5">
+              <Handshake size={16} className="shrink-0" />
+              %{job?.percentage}
             </p>
           </div>
         </div>
       </div>
       <div>{job?.description}</div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-muted-foreground">
+          Posted on {new Date(job?.createdAt ?? '').toLocaleDateString()}%
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <button
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          onClick={() => window.location.href = `${job?.urlToApply ?? '#'}`}
+        >
+          Apply Now
+        </button>
+      </div>
     </section>
   );
 }
