@@ -44,16 +44,16 @@ export default function JobPage({
               <Banknote size={16} className="shrink-0" />
               {formatMoney(profile?.salary ?? 0)} 
             </p>
-            <div className="flex items-center gap-1">
+            <p className="flex items-center gap-1">
               {profile?.skills.map((skill: string) => (
-                <div
+                <span
                   key={skill}
                   className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition"
                 >
                   {skill}
-                </div>
+                </span>
               ))}
-            </div>
+            </p>
           </div>
         </div>
       </div>
