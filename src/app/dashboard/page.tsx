@@ -4,20 +4,20 @@ import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MyJobListings from '@/components/MyJobListings';
-import AppliedFreelancers from '@/components/AppliedFreelancers';
-// Removed unused imports: Card, BriefcaseBusiness, Rocket
-// import Card from "@/components/DashboardCard";
-// import { BriefcaseBusiness, Rocket } from "lucide-react"
 
 function Dashboard() {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
 
     useEffect(() => {
+        if (status === "loading") return; // Wait for session to load
         if (!session) {
             redirect('/');
         }
-    }, [session]);
+    }, [session, status]);
 
+    if (status === "loading") {
+        return null; // Or a loading spinner
+    }
     if (!session) {
         return null;
     }
@@ -43,13 +43,6 @@ function Dashboard() {
                 {/* The h2 and MyJobListings component will provide their own padding */}
                 <h2 className="text-2xl font-semibold mb-3 p-6 pb-0">My Job Listings</h2>
                 <MyJobListings />
-            </div>
-
-            {/* Applicants Section */}
-            <div className="mb-8 border rounded-lg shadow-md bg-slate-50"> {/* Added mb-8 for spacing consistent with other sections */}
-                {/* The h2 and AppliedFreelancers component will provide their own padding */}
-                <h2 className="text-2xl font-semibold mb-3 p-6 pb-0">Applicants</h2>
-                <AppliedFreelancers />
             </div>
         </div>
     )

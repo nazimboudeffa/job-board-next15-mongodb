@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface Job {
-  id: string;
+  _id: string; // Assuming _id is a string, adjust if it's an ObjectId or another type
   title: string;
+  slug: string;
   status: 'open' | 'closed' | 'draft';
-  applicantsCount: number;
 }
 
 const MyJobListings: React.FC = () => {
@@ -91,18 +92,55 @@ const MyJobListings: React.FC = () => {
       {/* <h3 className="text-xl font-semibold mb-4 text-gray-700">My Job Postings</h3> */}
       <ul className="space-y-4">
         {jobs.map(job => (
-          <li key={job.id} className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-150 ease-in-out">
-            <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2 sm:mb-0">{job.title}</h4>
+          <li key={job._id.toString()} className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-150 ease-in-out flex flex-col sm:flex-row justify-between sm:items-center">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <Link href={`/dashboard/jobs/${job.slug}`} className="text-lg font-semibold text-gray-800 hover:underline">
+                {job.title}
+              </Link>
               <span
                 className={`px-3 py-1 text-xs font-medium rounded-full capitalize ${getStatusClasses(job.status)}`}
               >
                 {job.status}
               </span>
             </div>
-            <p className="text-sm text-gray-600 mt-2">
-              Applicants: <span className="font-medium text-gray-800">{job.applicantsCount}</span>
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2 sm:mt-0">
+              <button
+                className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 text-xs mr-2"
+                onClick={() => window.location.href = `/dashboard/jobs/edit/${job.slug}`}
+              >
+                Modify
+              </button>
+              <button
+                className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-xs mr-2"
+                onClick={() => window.location.href = `/dashboard/jobs/${job.slug}`}
+              >
+                View
+              </button>
+              <button
+                className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  if (!confirm('Are you sure you want to delete this job?')) return;
+                  try {
+                    const res = await fetch('/api/dashboard/jobs', {
+                      method: 'DELETE',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ jobId: job._id })
+                    });
+                    if (res.ok) {
+                      setJobs(jobs.filter(j => j._id !== job._id));
+                    } else {
+                      const data = await res.json();
+                      alert(data.error ?? 'Failed to delete job');
+                    }
+                  } catch {
+                    alert('Error deleting job');
+                  }
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
