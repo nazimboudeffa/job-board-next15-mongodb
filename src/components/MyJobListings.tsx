@@ -18,25 +18,32 @@ const MyJobListings: React.FC = () => {
     const fetchJobs = async () => {
       setIsLoading(true);
       setError(null);
+      // Fetch jobs posted by the current user
+      const fetchUserJobs: () => Promise<Job[]> = async () => {
+          const response = await fetch('/api/dashboard/jobs', {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+              }
+          });
+
+          const data = await response.json();
+
+          // Log the entire response for debugging
+          console.log('API Response:', data);
+
+          // Check if response is successful and has jobs
+          if (!response.ok) {
+              throw new Error(data.error ?? 'Failed to fetch jobs');
+          }
+
+          // Ensure jobs is an array, default to empty array if undefined or null
+          return data.jobs ?? [];
+      };
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
-
-        // Mock data - replace with actual fetch call
-        const mockJobs: Job[] = [
-          { id: '1', title: 'Software Engineer Backend', status: 'open', applicantsCount: 15 },
-          { id: '2', title: 'Product Manager', status: 'closed', applicantsCount: 30 },
-          { id: '3', title: 'UX Designer', status: 'draft', applicantsCount: 0 },
-          { id: '4', title: 'DevOps Engineer', status: 'open', applicantsCount: 5 },
-        ];
-
-        // Simulate a scenario where no jobs are found
-        // const mockJobs: Job[] = [];
-
-        // Simulate an error
-        // throw new Error("Simulated API Error");
-
-        setJobs(mockJobs);
+        
+        const jobsData = await fetchUserJobs();
+        setJobs(jobsData);
 
       } catch (err) {
         if (err instanceof Error) {
