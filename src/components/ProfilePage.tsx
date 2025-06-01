@@ -3,7 +3,6 @@
 import { formatMoney } from "@/lib/helpers";
 import { Banknote } from "lucide-react";
 import { useEffect, useState } from "react";
-import Badge from "./Badge";
 import Profile from "@/lib/types/profile";
 
 interface JobPageProps {
@@ -45,11 +44,16 @@ export default function JobPage({
               <Banknote size={16} className="shrink-0" />
               {formatMoney(profile?.salary ?? 0)} 
             </p>
-            <p className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
               {profile?.skills.map((skill: string) => (
-                <Badge key={skill}>{skill}</Badge>
+                <div
+                  key={skill}
+                  className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground hover:bg-muted/80 transition"
+                >
+                  {skill}
+                </div>
               ))}
-            </p>
+            </div>
           </div>
         </div>
       </div>
