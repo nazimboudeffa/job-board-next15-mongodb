@@ -11,12 +11,12 @@ function getTitle({ title, type }: JobFilterValues) {
   if (title) {
     titlePrefix = `${title}`;
   } else if (type) {
-    titlePrefix = `${type} freelance`;
+    titlePrefix = `${type} Remote`;
   } else {
-    titlePrefix = "All freelance";
+    titlePrefix = "All Remote";
   }
 
-  const titleSuffix = " jobs";
+  const titleSuffix = " Jobs";
 
   console.log(titlePrefix, titleSuffix);
 
