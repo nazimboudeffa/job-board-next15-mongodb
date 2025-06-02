@@ -29,11 +29,15 @@ export default function Jobs() {
   const title = searchParams.get('title');
   const type = searchParams.get('type');
   const page = searchParams.get('page');
+  const company = searchParams.get('company');
+  const location = searchParams.get('location');
 
   const filterValues = useMemo(() => ({
     title: title ?? undefined,
     type: type ?? undefined,
-  }), [title, type]);
+    company: company ?? undefined,
+    location: location ?? undefined,
+  }), [title, type, company, location]);
 
   const [jobs, setJobs] = useState([]);
   const [totalJobs, setTotalJobs] = useState(0);
