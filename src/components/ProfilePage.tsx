@@ -87,10 +87,10 @@ export default function JobPage({
           </div>
         </div>
         <div className="mt-8">
-          <h2 className="text-lg font-semibold mb-2 text-slate-700">Contact & Social</h2>
+          <h2 className="text-lg font-semibold mb-2 text-slate-700">Website</h2>
           <div className="flex flex-wrap gap-4 items-center">
             {/* Example: Add more fields as needed */}
-            <span className="inline-block text-slate-500 text-sm">Username: <span className="font-mono">{profile?.username}</span></span>
+            <span className="inline-block text-slate-500 text-sm font-mono">{profile?.website}</span>
             {/* Add LinkedIn, website, email, etc. if available in profile */}
           </div>
         </div>
