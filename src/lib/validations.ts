@@ -45,8 +45,8 @@ export const singInSchema = z.object({
 });
 
 export const profileSchema = z.object({
-  username: requiredString.max(100),
-  name: requiredString.max(100),
+  username: requiredString.max(8),
+  name: requiredString.max(50),
   website: z.string().url().optional(),
   bio: z.string().max(250),
   skills: z.array(z.string().max(100)).max(3),
