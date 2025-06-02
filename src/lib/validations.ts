@@ -49,7 +49,7 @@ export const profileSchema = z.object({
   name: requiredString.max(50),
   website: z.string().url().optional(),
   bio: z.string().max(250),
-  skills: z.array(z.string().max(100)).max(3),
+  skills: z.array(z.string().max(100)).max(3, "You can't add more than 3 skills"),
   salary: z.number().int().min(1),
   image: z.string(),
 });
