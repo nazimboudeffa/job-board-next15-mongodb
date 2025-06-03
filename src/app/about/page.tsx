@@ -30,6 +30,9 @@ export default function PP() {
             You can post only three skills per job, but you can add as many skills as you want in the description, so we can manage them in the future.
         </p>
         <p>
+            Your daily rate in your profile is in EUR to be sure to have a common currency for all freelances.
+        </p>
+        <p>
             If you find a bug, please open an issue on <Link href="https://github.com/rapidosaas" className="text-blue-500 hover:underline">GitHub</Link>.
         </p>
         <p>
