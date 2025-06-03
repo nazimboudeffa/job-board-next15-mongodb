@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Globe, Briefcase, Users, Github, MessageSquare } from 'lucide-react';
+import { Globe, Briefcase, Users, Landmark, MessageSquare, CodeXml } from 'lucide-react';
 
 export default function PP() {
     return (
@@ -24,7 +24,7 @@ export default function PP() {
 
             <section>
                 <h2 className="text-2xl font-semibold mb-4 flex items-center justify-center">
-                    <Globe className="w-6 h-6 mr-2 text-gray-700" /> Our Business Model
+                    <Landmark className="w-6 h-6 mr-2 text-gray-700" /> Our Business Model
                 </h2>
                 <p className="mb-2">
                     The business model is based on donations and sponsorships.
@@ -32,7 +32,7 @@ export default function PP() {
                 <p className="mb-2">
                     The business you can make with neoFreelance is yours. We do not take any commission on your earnings (maybe later, no one knows).
                 </p>
-                <p>
+                <p className="mb-2">
                     When posting a job, you just have to provide a percentage you take on the daily rate of freelances.
                 </p>
             </section>
@@ -41,22 +41,28 @@ export default function PP() {
                 <h2 className="text-2xl font-semibold mb-4 flex items-center justify-center">
                     <Briefcase className="w-6 h-6 mr-2 text-gray-700" /> Key Features
                 </h2>
-                <ul className="list-disc list-inside space-y-1 text-left inline-block">
-                    <li className="flex items-center"><Globe className="w-5 h-5 mr-2 text-green-500" /> Post jobs in USD, EUR, and DZD.</li>
-                    <li className="flex items-center"><Briefcase className="w-5 h-5 mr-2 text-purple-500" /> Add up to three main skills per job (but you can add as many skills as you want in the description for future management).</li>
-                    <li className="flex items-center"><Users className="w-5 h-5 mr-2 text-yellow-500" /> Profile daily rates are in EUR for consistency across all freelances.</li>
-                </ul>
+                    <p>You can post jobs in USD, EUR, and DZD.</p>
+                    <p>Add up to three main skills per job (but you can add as many skills as you want in the description for future management).</p>
+                    <p>Profile daily rates are in EUR for consistency across all freelances.</p>
+            </section>
+
+            <section>
+                <h2 className="text-2xl font-semibold mb-4 flex items-center justify-center">
+                    <Globe className="w-6 h-6 mr-2 text-gray-700" /> How to be contacted by the users
+                </h2>
+                    <p>If you are a business provider, use an apply link to Google Form, Tally or TypeForm.</p>
+                    <p>If you are a freelance provide a link to your portfolio, LinkedIn or GitHub.</p>
             </section>
 
             <section>
                 <h2 className="text-2xl font-semibold mb-4 flex items-center justify-center">
                     <MessageSquare className="w-6 h-6 mr-2 text-gray-700" /> Connect With Us
                 </h2>
-                <p className="mb-2 flex items-center justify-center">
-                    <Github className="w-5 h-5 mr-2" /> If you find a bug, please open an issue on <Link href="https://github.com/rapidosaas" className="text-blue-500 hover:underline ml-1">GitHub</Link>.
+                <p>
+                  If you find a bug, please open an issue on <Link href="https://github.com/rapidosaas" className="text-blue-500 hover:underline ml-1">GitHub</Link>.
                 </p>
-                <p className="flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 mr-2" /> If you have any questions or suggestions, feel free to contact us on <Link href="https://www.facebook.com/CodeurGrosArgent" className="text-blue-500 hover:underline ml-1">Facebook</Link>.
+                <p>
+                    If you have any questions or suggestions, feel free to contact us on <Link href="https://www.facebook.com/CodeurGrosArgent" className="text-blue-500 hover:underline ml-1">Facebook</Link>.
                 </p>
             </section>
 
