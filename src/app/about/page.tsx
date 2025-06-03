@@ -18,7 +18,7 @@ export default function PP() {
             The business model is based on donations and sponsorships.
         </p>
         <p>
-            The business you can make with neoFreelance is yours. We do not take any commission on your earnings.
+            The business you can make with neoFreelance is yours. We do not take any commission on your earnings, maybe later, no one knows.
         </p>
         <p>
             You just have to provide a percentage you take on the the daily rate of freelances when you post a job.
