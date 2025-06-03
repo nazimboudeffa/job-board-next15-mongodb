@@ -4,6 +4,7 @@ import { formatMoney } from "@/lib/helpers";
 import { useEffect, useState } from "react";
 import Profile from "@/lib/types/profile";
 import Image from "next/image";
+import Markdown from "react-markdown";
 
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
@@ -99,9 +100,11 @@ export default function JobPage({
         {/* Bio Section */}
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-2 text-slate-700">About</h2>
-          <p className="text-base text-slate-800 leading-relaxed whitespace-pre-line">
+          <div className="text-base text-slate-800 leading-relaxed whitespace-pre-line">
+            <Markdown>
             {profile?.bio ?? "This user has not provided a bio yet."}
-          </p>
+            </Markdown>
+          </div>
         </div>
         {/* Optionally, add more sections: portfolio, experience, etc. */}
       </div>
