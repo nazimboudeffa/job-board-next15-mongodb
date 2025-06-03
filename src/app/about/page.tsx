@@ -15,6 +15,15 @@ export default function PP() {
             neoFreelance is a free and open-source project. It is not affiliated with any company or organization.
         </p>
         <p>
+            The business model is based on donations and sponsorships.
+        </p>
+        <p>
+            The business you can make with neoFreelance is yours. We do not take any commission on your earnings.
+        </p>
+        <p>
+            You just have to provide a percentage you take on the the daily rate of freelances when you post a job.
+        </p>
+        <p>
             If you find a bug, please open an issue on <Link href="https://github.com/rapidosaas" className="text-blue-500 hover:underline">GitHub</Link>.
         </p>
         <p>
