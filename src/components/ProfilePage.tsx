@@ -89,9 +89,11 @@ export default function JobPage({
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-2 text-slate-700">Website</h2>
           <div className="flex flex-wrap gap-4 items-center">
-            {/* Example: Add more fields as needed */}
-            <span className="inline-block text-slate-500 text-sm font-mono">{profile?.website}</span>
-            {/* Add LinkedIn, website, email, etc. if available in profile */}
+            {profile?.website ? (
+              <span className="inline-block text-slate-500 text-sm font-mono">{profile.website}</span>
+            ) : (
+              <span className="inline-block text-slate-400 text-sm italic">No website provided.</span>
+            )}
           </div>
         </div>
         {/* Bio Section */}
