@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Globe, Briefcase, Users, Landmark, MessageSquare, CodeXml } from 'lucide-react';
+import { Globe, Briefcase, Users, Landmark, MessageSquare } from 'lucide-react';
 
 export default function PP() {
     return (
