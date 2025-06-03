@@ -24,6 +24,12 @@ export default function PP() {
             You just have to provide a percentage you take on the the daily rate of freelances when you post a job.
         </p>
         <p>
+            You can post jobs in three currencies: USD, EUR, and Algerian Dinar DZD.
+        </p>
+        <p>
+            You can post only three skills per job, but you can add as many skills as you want in the description, so we can manage them in the future.
+        </p>
+        <p>
             If you find a bug, please open an issue on <Link href="https://github.com/rapidosaas" className="text-blue-500 hover:underline">GitHub</Link>.
         </p>
         <p>
