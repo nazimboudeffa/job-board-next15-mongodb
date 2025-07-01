@@ -9,7 +9,7 @@ export default function Footer() {
               Connecting talents with opportunities
           </div>
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
-            <Link href="https://www.facebook.com/CodeurGrosArgent" target="_blank" className="hover:underline">
+            <Link href="https://www.facebook.com/rapidosaas" target="_blank" className="hover:underline">
               Facebook
             </Link>
             <Link href="https://github.com/rapidosaas" target="_blank" className="hover:underline">
